@@ -60,8 +60,8 @@ if (listCalls % inputs.length !== 0) {
 
 let inputIndex = 0;
 const bench = new Bench({
-  time: 200,
-  warmupTime: 100,
+  time: 1_000,
+  warmupTime: 500,
 });
 bench.add("repeated-scalar-max-items", () => {
   checksum += validate(inputs[inputIndex] ?? inputs[0]);

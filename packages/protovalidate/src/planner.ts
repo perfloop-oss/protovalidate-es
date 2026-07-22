@@ -270,12 +270,20 @@ export class Planner {
         break;
       }
       case "scalar": {
-        evals.add(
-          new EvalListItems<ScalarValue>(
-            ignoreScalarValue(field.scalar, itemsRules?.ignore),
-            this.scalar(field.scalar, itemsRules, rulePathItems, false, field),
-          ),
-        );
+        if (itemsRules) {
+          evals.add(
+            new EvalListItems<ScalarValue>(
+              ignoreScalarValue(field.scalar, itemsRules.ignore),
+              this.scalar(
+                field.scalar,
+                itemsRules,
+                rulePathItems,
+                false,
+                field,
+              ),
+            ),
+          );
+        }
         break;
       }
       case "message": {
